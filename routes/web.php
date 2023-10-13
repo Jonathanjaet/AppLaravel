@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AppController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +18,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+/* Route::get('/empleado', function () {
+    return view('empleado.index');
+});
+Route::get('/empleado/create'),[AppController::class, 'create']);
+*/
+
+Route::resource('empleado', AppController::class);
+
+Auth::routes();
+
+/*Route::get('/home', [AppController::class, 'index'])->name('home');
+
+Route::group(['middleware' => 'auth'], function() {
+
+    Route::get('/home', [AppController::class, 'index'])->name('home');
+})*/
