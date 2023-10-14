@@ -22,7 +22,7 @@ Route::get('/', function () {
 /**Route::get('/empleado', function () {
     return view('empleado.index');
 });
-Route::get('/empleado/create', [AppController::class, 'create']);
+Route::get('/empleado/create', [EmpleadoController::class, 'create']);
 */
 
 Route::resource('empleado',EmpleadoController::class);
