@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\AppController;
+use App\Http\Controllers\EmpleadoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,22 +16,25 @@ use App\Http\Controllers\AppController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login'); 
 });
 
-/* Route::get('/empleado', function () {
+/**Route::get('/empleado', function () {
     return view('empleado.index');
 });
-Route::get('/empleado/create'),[AppController::class, 'create']);
+Route::get('/empleado/create', [AppController::class, 'create']);
 */
 
-Route::resource('empleado', AppController::class);
+Route::resource('empleado',EmpleadoController::class);
 
 Auth::routes();
 
-/*Route::get('/home', [AppController::class, 'index'])->name('home');
+Route::get('/home', [EmpleadoController::class, 'index'])->name('home');//direccionamiento al CRUD
 
 Route::group(['middleware' => 'auth'], function() {
 
-    Route::get('/home', [AppController::class, 'index'])->name('home');
-})*/
+    Route::get('/home', [EmpleadoController::class, 'index'])->name('home');
+    
+});
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
